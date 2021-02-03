@@ -3,5 +3,8 @@
     "standard.autoFixOnSave": true,
     "javascript.validate.enable": false,
     "files.autoSave": "onFocusChange",
-    "editor.rulers": [80]
+    "editor.rulers": [80],
+    "standard.options": {
+        "globals": ["fetch", "localStorage"]
+    }
 }
