@@ -1,5 +1,23 @@
 (function () {
   let todos = []
+  let catFacts = []
+
+  async function fillPlaceholder (nextTodoInput) {
+    if (catFacts.length === 0) {
+      console.log('Refreshing cat facts')
+      const response = await fetch('https://cat-fact.herokuapp.com/facts')
+      const newCatFacts = await response.json()
+
+      catFacts = newCatFacts
+    }
+
+    // The math selects a random number between 0 and one less than the number
+    // of cat facts.  This gives us a random placeholder text.
+    const selectedFact = Math.floor((Math.random() * (catFacts.length - 1)) + 0)
+    const catFact = catFacts[selectedFact].text
+
+    nextTodoInput.placeholder = catFact
+  }
 
   function getNextTodoInput (todos, nextTodoInput) {
     const newTodos = [...todos]
@@ -42,5 +60,11 @@
       todos = getNextTodoInput(todos, nextTodoInput)
       todoContainer.innerHTML = generateTodoList(todos)
       registerDeleteButtons(todoContainer, todos)
+      fillPlaceholder(nextTodoInput)
     })
+  document.addEventListener('DOMContentLoaded', function (event) {
+    const nextTodoInput = document.getElementById('next-todo')
+
+    fillPlaceholder(nextTodoInput)
+  })
 })()
