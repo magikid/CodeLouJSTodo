@@ -16,7 +16,7 @@ The features for the project that I'm aiming to use are:
 
 ## Installation
 
-```
+```bash
 git clone https://github.com/magikid/CodeLouJSTodo.git
 cd CodeLouJSTodo
 # open index.html in your browser
