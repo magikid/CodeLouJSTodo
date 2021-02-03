@@ -2,5 +2,6 @@
     "standard.enable": true,
     "standard.autoFixOnSave": true,
     "javascript.validate.enable": false,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.rulers": [80]
 }
