@@ -1,14 +1,21 @@
 (function () {
   let todos = []
   let catFacts = []
+  try {
+    catFacts = JSON.parse(localStorage.getItem('catFacts'))
+  } catch (e) {
+    console.log(e)
+    catFacts = []
+  }
 
   async function fillPlaceholder (nextTodoInput) {
-    if (catFacts.length === 0) {
+    if (catFacts === null || catFacts.length === 0) {
       console.log('Refreshing cat facts')
       const response = await fetch('https://cat-fact.herokuapp.com/facts')
       const newCatFacts = await response.json()
 
       catFacts = newCatFacts
+      localStorage.setItem('catFacts', JSON.stringify(catFacts))
     }
 
     // The math selects a random number between 0 and one less than the number
