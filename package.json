@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "jasmine": "^3.6.4",
     "typescript": "^4.1.4"
   }
 }
