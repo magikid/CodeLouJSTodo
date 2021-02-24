@@ -21,7 +21,7 @@
       </div>
     </div>
 
-        <form>
+        <form id="todo-form">
           <div class="form-group row">
             <label for="next-todo" class="col-sm-2 col-form-label">Next todo</label>
             <div class="col-sm-7">
@@ -46,12 +46,13 @@
 
     <!-- My own code -->
     <script src="src/TodoItem.js"></script>
-    <script src="index.js"></script>
+    <script src="src/TodoListApp.js"></script>
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', function (event) {
         const todoContainer = document.getElementById('todo-list')
         const nextTodoInput = document.getElementById('next-todo')
-        const app = new TodoListApp(nextTodoInput, todoContainer)
+        const form = document.getElementById('todo-form')
+        const app = new TodoListApp(nextTodoInput, todoContainer, form)
         app.boot()
       })
 
