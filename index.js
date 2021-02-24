@@ -106,10 +106,3 @@ class TodoListApp {
     })
   }
 }
-
-document.addEventListener('DOMContentLoaded', function (event) {
-  const todoContainer = document.getElementById('todo-list')
-  const nextTodoInput = document.getElementById('next-todo')
-  const app = new TodoListApp(nextTodoInput, todoContainer)
-  app.boot()
-})
